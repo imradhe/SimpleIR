@@ -272,6 +272,17 @@ with open('tests/hypothesis/sentenceSegmentation.txt', 'w', encoding='utf-8') as
     else:
         file.write("Fail to reject the null hypothesis. There is no significant difference between the precision scores of the two approaches.\n")
 
+    # Compare p-value to alpha
+    if p_value_precision < alpha:
+        print("Reject the null hypothesis.")
+        if t_statistic_precision > 0:
+            file.write("Approach 'Naive' performs better than approach 'Punkt'.")
+        else:
+            file.write("Approach 'Punkt' performs better than approach 'Naive'.")
+    else:
+        file.write("Fail to reject the null hypothesis. There is no significant difference in effectiveness between the two approaches.")
+
+
 # Print hypothesis testing results
 print("T-statistic:", t_statistic_precision)
 print("P-value:", p_value_precision)
@@ -279,3 +290,14 @@ if p_value_precision < alpha:
     print("Reject the null hypothesis. There is a significant difference between the precision scores of the two approaches.")
 else:
     print("Fail to reject the null hypothesis. There is no significant difference between the precision scores of the two approaches.")
+
+
+# Compare p-value to alpha
+if p_value_precision < alpha:
+    print("Reject the null hypothesis.")
+    if t_statistic_precision > 0:
+        print("Approach 'Naive' performs better than approach 'Punkt'.")
+    else:
+        print("Approach 'Punkt' performs better than approach 'Naive'.")
+else:
+    print("Fail to reject the null hypothesis. There is no significant difference in effectiveness between the two approaches.")

@@ -2,3 +2,4 @@ T-statistic for precision scores: 29.82404540317293
 P-value for precision scores: 1.9080244945201174e-25
 
 Reject the null hypothesis. There is a significant difference between the precision scores of the two approaches.
+Approach 'Naive' performs better than approach 'Punkt'.
