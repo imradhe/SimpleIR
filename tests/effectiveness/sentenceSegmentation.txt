@@ -1,4 +1,4 @@
-Naive: Precision - 0.6538461538461539, Recall - 0.5396825396825397, F1 Score - 0.5913043478260869
+Naive: Precision - 0.7192307692307692, Recall - 0.6131147540983606, F1 Score - 0.6619469026548671
 Punkt: Precision - 0.6961538461538462, Recall - 0.5468277945619335, F1 Score - 0.6125211505922166
 
 Input Text: This is a simple sentence. Another sentence follows!
@@ -87,7 +87,7 @@ Punkt Passed: True
 
 Input Text: I'm happy :) but she's sad :(.
 Expected: ["I'm happy :)", "but she's sad :("]
-Naive Output: ["I'm happy :", ") but she's sad :", '(.']
+Naive Output: ["I'm happy :) but she's sad :(."]
 Naive Passed: False
 Punkt Output: ["I'm happy :) but she's sad :(."]
 Punkt Passed: False
@@ -138,21 +138,21 @@ Punkt Passed: False
 
 Input Text: This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875. This is another sentence with decimal numbers: 6.12, 33.21, 433.132
 Expected: ['This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers: 6.12, 33.21, 433.132']
-Naive Output: ['This sentence with decimal numbers:', '3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers:', '6.12, 33.21, 433.132']
-Naive Passed: False
+Naive Output: ['This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers: 6.12, 33.21, 433.132']
+Naive Passed: True
 Punkt Output: ['This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers: 6.12, 33.21, 433.132']
 Punkt Passed: True
 
 Input Text: The equation for the area of a circle is: A = π * r^2, where r is the radius.
 Expected: ['The equation for the area of a circle is: A = π * r^2, where r is the radius.']
-Naive Output: ['The equation for the area of a circle is:', 'A = π * r^2, where r is the radius.']
-Naive Passed: False
+Naive Output: ['The equation for the area of a circle is: A = π * r^2, where r is the radius.']
+Naive Passed: True
 Punkt Output: ['The equation for the area of a circle is: A = π * r^2, where r is the radius.']
 Punkt Passed: True
 
 Input Text: To print 'Hello, World!' in Python, you can use: print('Hello, World!')
 Expected: ["To print 'Hello, World!' in Python, you can use: print('Hello, World!')"]
-Naive Output: ["To print 'Hello, World!", "' in Python, you can use:", "print('Hello, World!", "')"]
+Naive Output: ["To print 'Hello, World!", "' in Python, you can use: print('Hello, World!", "')"]
 Naive Passed: False
 Punkt Output: ["To print 'Hello, World!'", "in Python, you can use: print('Hello, World!')"]
 Punkt Passed: False

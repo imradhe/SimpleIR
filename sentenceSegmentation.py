@@ -40,7 +40,7 @@ class SentenceSegmentation():
             A list of strings where each string is a single sentence
         """
 
-        punctuation_marks = ['.', '!', '?', ";", ":", "\n"]
+        punctuation_marks = ['.', '!', '?', ";", "\n"]
 
         brackets_and_quotes = ['"', "'", '(', ')', '[', ']', '{', '}']
 
