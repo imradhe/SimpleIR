@@ -1,0 +1,243 @@
+Naive: Precision - 0.6538461538461539, Recall - 0.5396825396825397, F1 Score - 0.5913043478260869
+Punkt: Precision - 0.6961538461538462, Recall - 0.5468277945619335, F1 Score - 0.6125211505922166
+
+Input Text: This is a simple sentence. Another sentence follows!
+Expected: ['This is a simple sentence.', 'Another sentence follows!']
+Naive Output: ['This is a simple sentence.', 'Another sentence follows!']
+Naive Passed: True
+Punkt Output: ['This is a simple sentence.', 'Another sentence follows!']
+Punkt Passed: True
+
+Input Text: Dr. Smith said, 'Hello, Mr. Jones.' Is that correct?
+Expected: ["Dr. Smith said, 'Hello, Mr. Jones.'", 'Is that correct?']
+Naive Output: ["Dr. Smith said, 'Hello, Mr. Jones.", "' Is that correct?"]
+Naive Passed: False
+Punkt Output: ["Dr. Smith said, 'Hello, Mr.", "Jones.'", 'Is that correct?']
+Punkt Passed: False
+
+Input Text: 
+Expected: []
+Naive Output: []
+Naive Passed: True
+Punkt Output: []
+Punkt Passed: True
+
+Input Text: ?!;:
+Expected: ['?!;:']
+Naive Output: ['?!;:']
+Naive Passed: True
+Punkt Output: ['?', '!', ';:']
+Punkt Passed: False
+
+Input Text: Hello
+Expected: ['Hello']
+Naive Output: ['Hello']
+Naive Passed: True
+Punkt Output: ['Hello']
+Punkt Passed: True
+
+Input Text: Sentence 1 ends with '.', Sentence 2 ends with '?', Sentence 3 ends with '!'
+Expected: ["Sentence 1 ends with '.', Sentence 2 ends with '?', Sentence 3 ends with '!'"]
+Naive Output: ["Sentence 1 ends with '.", "', Sentence 2 ends with '?", "', Sentence 3 ends with '!", "'"]
+Naive Passed: False
+Punkt Output: ["Sentence 1 ends with '.", "', Sentence 2 ends with '?", "', Sentence 3 ends with '!'"]
+Punkt Passed: False
+
+Input Text: 1. First point. 2. Second point. 3. Third point.
+Expected: ['1. First point.', '2. Second point.', '3. Third point.']
+Naive Output: ['1.', 'First point.', '2.', 'Second point.', '3.', 'Third point.']
+Naive Passed: False
+Punkt Output: ['1.', 'First point.', '2.', 'Second point.', '3.', 'Third point.']
+Punkt Passed: False
+
+Input Text: This is a sentence... And here's another...
+Expected: ['This is a sentence...', "And here's another..."]
+Naive Output: ['This is a sentence...', "And here's another..."]
+Naive Passed: True
+Punkt Output: ["This is a sentence... And here's another..."]
+Punkt Passed: False
+
+Input Text: This (is) a [test].
+Expected: ['This (is) a [test].']
+Naive Output: ['This (is) a [test].']
+Naive Passed: True
+Punkt Output: ['This (is) a [test].']
+Punkt Passed: True
+
+Input Text: "This is a quote," he said.
+Expected: ['"This is a quote," he said.']
+Naive Output: ['"This is a quote," he said.']
+Naive Passed: True
+Punkt Output: ['"This is a quote," he said.']
+Punkt Passed: True
+
+Input Text: We'll meet at 6 p.m. at 123 Main St. (across the street).
+Expected: ["We'll meet at 6 p.m. at 123 Main St. (across the street)."]
+Naive Output: ["We'll meet at 6 p.m.", 'at 123 Main St.', '(across the street).']
+Naive Passed: False
+Punkt Output: ["We'll meet at 6 p.m. at 123 Main St. (across the street)."]
+Punkt Passed: True
+
+Input Text: She said, 'I'm going to the store (I need eggs).'
+Expected: ["She said, 'I'm going to the store (I need eggs).'"]
+Naive Output: ["She said, 'I'm going to the store (I need eggs).", "'"]
+Naive Passed: False
+Punkt Output: ["She said, 'I'm going to the store (I need eggs).'"]
+Punkt Passed: True
+
+Input Text: I'm happy :) but she's sad :(.
+Expected: ["I'm happy :)", "but she's sad :("]
+Naive Output: ["I'm happy :", ") but she's sad :", '(.']
+Naive Passed: False
+Punkt Output: ["I'm happy :) but she's sad :(."]
+Punkt Passed: False
+
+Input Text: Visit us at www.example.com or email us at info@example.com.
+Expected: ['Visit us at www.example.com or email us at info@example.com.']
+Naive Output: ['Visit us at www.example.com or email us at info@example.com.']
+Naive Passed: True
+Punkt Output: ['Visit us at www.example.com or email us at info@example.com.']
+Punkt Passed: True
+
+Input Text: High-level programming is fun.
+Expected: ['High-level programming is fun.']
+Naive Output: ['High-level programming is fun.']
+Naive Passed: True
+Punkt Output: ['High-level programming is fun.']
+Punkt Passed: True
+
+Input Text: This text ends with an exclamation mark! And this one with a period.
+Expected: ['This text ends with an exclamation mark!', 'And this one with a period.']
+Naive Output: ['This text ends with an exclamation mark!', 'And this one with a period.']
+Naive Passed: True
+Punkt Output: ['This text ends with an exclamation mark!', 'And this one with a period.']
+Punkt Passed: True
+
+Input Text:    This   has   multiple   spaces   between   words.   
+Expected: ['   This   has   multiple   spaces   between   words.   ']
+Naive Output: ['This   has   multiple   spaces   between   words.']
+Naive Passed: False
+Punkt Output: ['   This   has   multiple   spaces   between   words.']
+Punkt Passed: False
+
+Input Text: This is a SENTENCE in mixed CASE.
+Expected: ['This is a SENTENCE in mixed CASE.']
+Naive Output: ['This is a SENTENCE in mixed CASE.']
+Naive Passed: True
+Punkt Output: ['This is a SENTENCE in mixed CASE.']
+Punkt Passed: True
+
+Input Text: This sentence
+spans multiple
+lines.
+Expected: ['This sentence', 'spans multiple', 'lines.']
+Naive Output: ['This sentence', 'spans multiple', 'lines.']
+Naive Passed: True
+Punkt Output: ['This sentence\nspans multiple\nlines.']
+Punkt Passed: False
+
+Input Text: This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875. This is another sentence with decimal numbers: 6.12, 33.21, 433.132
+Expected: ['This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers: 6.12, 33.21, 433.132']
+Naive Output: ['This sentence with decimal numbers:', '3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers:', '6.12, 33.21, 433.132']
+Naive Passed: False
+Punkt Output: ['This sentence with decimal numbers: 3.14, 2.71828, 1.61803398875.', 'This is another sentence with decimal numbers: 6.12, 33.21, 433.132']
+Punkt Passed: True
+
+Input Text: The equation for the area of a circle is: A = π * r^2, where r is the radius.
+Expected: ['The equation for the area of a circle is: A = π * r^2, where r is the radius.']
+Naive Output: ['The equation for the area of a circle is:', 'A = π * r^2, where r is the radius.']
+Naive Passed: False
+Punkt Output: ['The equation for the area of a circle is: A = π * r^2, where r is the radius.']
+Punkt Passed: True
+
+Input Text: To print 'Hello, World!' in Python, you can use: print('Hello, World!')
+Expected: ["To print 'Hello, World!' in Python, you can use: print('Hello, World!')"]
+Naive Output: ["To print 'Hello, World!", "' in Python, you can use:", "print('Hello, World!", "')"]
+Naive Passed: False
+Punkt Output: ["To print 'Hello, World!'", "in Python, you can use: print('Hello, World!')"]
+Punkt Passed: False
+
+Input Text: The chemical formula for water is H2O. The formula for carbon dioxide is CO2.
+Expected: ['The chemical formula for water is H2O.', 'The formula for carbon dioxide is CO2.']
+Naive Output: ['The chemical formula for water is H2O.', 'The formula for carbon dioxide is CO2.']
+Naive Passed: True
+Punkt Output: ['The chemical formula for water is H2O.', 'The formula for carbon dioxide is CO2.']
+Punkt Passed: True
+
+Input Text: This is a very long sentence with multiple clauses and phrases, and it is meant to test the ability of the sentence segmentation algorithms to handle long and complex sentences, as well as to ensure that they do not incorrectly split the sentence into multiple parts, which could potentially lead to incorrect or incomplete information being extracted or processed.
+Expected: ['This is a very long sentence with multiple clauses and phrases, and it is meant to test the ability of the sentence segmentation algorithms to handle long and complex sentences, as well as to ensure that they do not incorrectly split the sentence into multiple parts, which could potentially lead to incorrect or incomplete information being extracted or processed.']
+Naive Output: ['This is a very long sentence with multiple clauses and phrases, and it is meant to test the ability of the sentence segmentation algorithms to handle long and complex sentences, as well as to ensure that they do not incorrectly split the sentence into multiple parts, which could potentially lead to incorrect or incomplete information being extracted or processed.']
+Naive Passed: True
+Punkt Output: ['This is a very long sentence with multiple clauses and phrases, and it is meant to test the ability of the sentence segmentation algorithms to handle long and complex sentences, as well as to ensure that they do not incorrectly split the sentence into multiple parts, which could potentially lead to incorrect or incomplete information being extracted or processed.']
+Punkt Passed: True
+
+Input Text: Hola, ¿cómo estás? Hello, how are you? नमस्ते, आप कैसे हैं?
+Expected: ['Hola, ¿cómo estás?', 'Hello, how are you?', 'नमस्ते, आप कैसे हैं?']
+Naive Output: ['Hola, ¿cómo estás?', 'Hello, how are you?', 'नमस्ते, आप कैसे हैं?']
+Naive Passed: True
+Punkt Output: ['Hola, ¿cómo estás?', 'Hello, how are you?', 'नमस्ते, आप कैसे हैं?']
+Punkt Passed: True
+
+Input Text: This is a <bold>bold</bold> text. <p>This is a new paragraph.</p>
+Expected: ['This is a <bold>bold</bold> text.', '<p>This is a new paragraph.</p>']
+Naive Output: ['This is a <bold>bold</bold> text.', '<p>This is a new paragraph.</p>']
+Naive Passed: True
+Punkt Output: ['This is a <bold>bold</bold> text.', '<p>This is a new paragraph.</p>']
+Punkt Passed: True
+
+Input Text: I'm feeling great today! 😊 Let's celebrate! 🎉
+Expected: ["I'm feeling great today! 😊", "Let's celebrate! 🎉"]
+Naive Output: ["I'm feeling great today!", "😊 Let's celebrate!", '🎉']
+Naive Passed: False
+Punkt Output: ["I'm feeling great today!", "😊 Let's celebrate!", '🎉']
+Punkt Passed: False
+
+Input Text: She's going to the store. He'll be there soon.
+Expected: ["She's going to the store.", "He'll be there soon."]
+Naive Output: ["She's going to the store.", "He'll be there soon."]
+Naive Passed: True
+Punkt Output: ["She's going to the store.", "He'll be there soon."]
+Punkt Passed: True
+
+Input Text: This is John's book. That is Mary's pen.
+Expected: ["This is John's book.", "That is Mary's pen."]
+Naive Output: ["This is John's book.", "That is Mary's pen."]
+Naive Passed: True
+Punkt Output: ["This is John's book.", "That is Mary's pen."]
+Punkt Passed: True
+
+Input Text: We live on Main St. He works at the U.S. Dept. of Defense.
+Expected: ['We live on Main St.', 'He works at the U.S. Dept. of Defense.']
+Naive Output: ['We live on Main St.', 'He works at the U.S.', 'Dept.', 'of Defense.']
+Naive Passed: False
+Punkt Output: ['We live on Main St.', 'He works at the U.S. Dept.', 'of Defense.']
+Punkt Passed: False
+
+Input Text: The meeting is scheduled for June 15th, 2023. The deadline is 31/12/2023.
+Expected: ['The meeting is scheduled for June 15th, 2023.', 'The deadline is 31/12/2023.']
+Naive Output: ['The meeting is scheduled for June 15th, 2023.', 'The deadline is 31/12/2023.']
+Naive Passed: True
+Punkt Output: ['The meeting is scheduled for June 15th, 2023.', 'The deadline is 31/12/2023.']
+Punkt Passed: True
+
+Input Text: The book costs $19.99. The shirt is €29.95.
+Expected: ['The book costs $19.99.', 'The shirt is €29.95.']
+Naive Output: ['The book costs $19.99.', 'The shirt is €29.95.']
+Naive Passed: True
+Punkt Output: ['The book costs $19.99.', 'The shirt is €29.95.']
+Punkt Passed: True
+
+Input Text: I ate 3/4 of the pizza. She drank 1/2 of the milk.
+Expected: ['I ate 3/4 of the pizza.', 'She drank 1/2 of the milk.']
+Naive Output: ['I ate 3/4 of the pizza.', 'She drank 1/2 of the milk.']
+Naive Passed: True
+Punkt Output: ['I ate 3/4 of the pizza.', 'She drank 1/2 of the milk.']
+Punkt Passed: True
+
+Input Text: The room is 10 meters long. The temperature is 25°C.
+Expected: ['The room is 10 meters long.', 'The temperature is 25°C.']
+Naive Output: ['The room is 10 meters long.', 'The temperature is 25°C.']
+Naive Passed: True
+Punkt Output: ['The room is 10 meters long.', 'The temperature is 25°C.']
+Punkt Passed: True
+
