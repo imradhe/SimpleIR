@@ -3,14 +3,6 @@ py main.py -dataset cranfield/ -out_folder output/ -segmenter punkt -tokenizer p
 
 
 #For custom cases.
-py main.py -custom -dataset cranfield/ -out_folder Custom_query_output_folder/ -segmenter punkt -tokenizer ptb
+py main.py -custom -dataset cranfield/ -out_folder output/ -segmenter punkt -tokenizer ptb
 Query:
 Papers on Aerodynamics
-
-
-py Main_spellcheck.py
-
-py Main_TF_IDF_stopwords.py
-
-
-py Word_nets.py
