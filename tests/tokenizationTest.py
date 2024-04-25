@@ -154,6 +154,12 @@ with open('tests/hypothesis/tokenization.txt', 'w', encoding='utf-8') as file:
         file.write("Reject the null hypothesis. There is a significant difference between the precision scores of the two approaches.\n")
     else:
         file.write("Fail to reject the null hypothesis. There is no significant difference between the precision scores of the two approaches.\n")
+    # Compare p-value to alpha
+    if t_statistic_precision > 0:
+        file.write("Approach 'naive' performs better than approach 'pennTreeBank'.")
+    else:
+        file.write("Approach 'pennTreeBank' performs better than approach 'naive'.")
+
 
 # Print hypothesis testing results
 print("T-statistic:", t_statistic_precision)

@@ -1,16 +1,16 @@
 Input Size: 10
 Naive Approach Time: 0.0
-PennTreeBank Approach Time: 0.0
+PennTreeBank Approach Time: 0.00099945068359375
 
 Input Size: 100
-Naive Approach Time: 0.0009968280792236328
-PennTreeBank Approach Time: 0.003989696502685547
+Naive Approach Time: 0.0010142326354980469
+PennTreeBank Approach Time: 0.00399470329284668
 
 Input Size: 1000
-Naive Approach Time: 0.006483793258666992
-PennTreeBank Approach Time: 0.0437777042388916
+Naive Approach Time: 0.00545501708984375
+PennTreeBank Approach Time: 0.04229927062988281
 
 Input Size: 10000
-Naive Approach Time: 0.08031773567199707
-PennTreeBank Approach Time: 0.4165041446685791
+Naive Approach Time: 0.08135128021240234
+PennTreeBank Approach Time: 0.41286540031433105
 
