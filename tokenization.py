@@ -138,25 +138,42 @@ class Tokenization():
             'total_weight': total_weight
         }
     
-    def efficiency(self, input_sizes, num_sentences=10, words_per_sentence=10):
-        naive_times = []
-        pennTreeBank_times = []
 
-        for size in input_sizes:
-            input_text = [' '.join(['word' for _ in range(words_per_sentence)]) for _ in range(num_sentences)]
+    def efficiency(self, num_sentences, words_per_sentence):
+        """
+        Measure the running time of the tokenization methods for different input sizes
 
-            start_time = time.time()
-            for _ in range(10):  # Repeat 10 times to get average time
-                self.tokenize(input_text, 'naive')
-            end_time = time.time()
-            naive_times.append((end_time - start_time) / 10)
+        Parameters
+        ----------
+        num_sentences : int
+            The number of sentences to generate
+        words_per_sentence : int
+            The number of words in each sentence
 
-            start_time = time.time()
-            for _ in range(10):  # Repeat 10 times to get average time
-                self.tokenize(input_text, 'pennTreeBank')
-            end_time = time.time()
-            pennTreeBank_times.append((end_time - start_time) / 10)
+        Returns
+        -------
+        dict
+            A dictionary containing the running times for each tokenization method
+        """
+        # Generate random text
+        random_text = []
+        for _ in range(num_sentences):
+            sentence = ' '.join(''.join(random.choices(string.ascii_letters + string.digits, k=random.randint(1, words_per_sentence))) for _ in range(words_per_sentence))
+            random_text.append(sentence)
 
-        return naive_times, pennTreeBank_times
+        # Measure running time for naive tokenization
+        start_time = time.time()
+        self.tokenize(random_text, 'naive')
+        naive_time = time.time() - start_time
 
+        # Measure running time for Penn Treebank tokenization
+        start_time = time.time()
+        self.tokenize(random_text, 'pennTreeBank')
+        pennTreeBank_time = time.time() - start_time
 
+        return {
+            'naive': naive_time,
+            'pennTreeBank': pennTreeBank_time,
+            'num_sentences': num_sentences,
+            'words_per_sentence': words_per_sentence
+        }

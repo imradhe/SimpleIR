@@ -1,6 +1,8 @@
 # Add your import statements here
 
 import time
+import random
+import string
 import nltk
 from nltk.tokenize import sent_tokenize
 import re

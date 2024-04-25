@@ -74,7 +74,7 @@ test_cases = [
         'expected': [[]],
         'weight': 0.3
     },
-
+ 
     # Long sentence
     {
         'input_text': ["This is a very long sentence with multiple clauses, and it includes various punctuation marks, such as commas, semicolons; colons: and even parentheses (like this one)."],
@@ -122,10 +122,14 @@ print(f"Naive: Precision - {effectiveness_metrics['naive']['precision']}, Recall
 print(f"PennTreeBank: Precision - {effectiveness_metrics['pennTreeBank']['precision']}, Recall - {effectiveness_metrics['pennTreeBank']['recall']}, F1 Score - {effectiveness_metrics['pennTreeBank']['f1_score']}")
 
 # Efficiency testing
-tokenization = Tokenization()
-input_sizes = [10, 100, 1000, 10000]  # input sizes
+input_sizes = [10, 100, 1000, 10000]
+naive_times, pennTreeBank_times = [], []
 
-naive_times, pennTreeBank_times = tokenization.efficiency(input_sizes)
+for num_sentences in input_sizes:
+    words_per_sentence = 10
+    efficiency_result = tokenization.efficiency(num_sentences, words_per_sentence)
+    naive_times.append(efficiency_result['naive'])
+    pennTreeBank_times.append(efficiency_result['pennTreeBank'])
 
 # Save test cases and efficiency metrics
 with open('tests/efficiency/tokenization.txt', 'w', encoding='utf-8') as file:
@@ -133,7 +137,6 @@ with open('tests/efficiency/tokenization.txt', 'w', encoding='utf-8') as file:
         file.write(f"Input Size: {input_sizes[i]}\n")
         file.write(f"Naive Approach Time: {naive_times[i]}\n")
         file.write(f"PennTreeBank Approach Time: {pennTreeBank_times[i]}\n\n")
-
 # Hypothesis testing
 alpha = 0.5
 with open('tests/hypothesis/tokenization.txt', 'w', encoding='utf-8') as file:
