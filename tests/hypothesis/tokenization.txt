@@ -1,0 +1,4 @@
+T-statistic for precision scores: -10.64314783063173
+P-value for precision scores: 3.9521665584214367e-07
+
+Reject the null hypothesis. There is a significant difference between the precision scores of the two approaches.

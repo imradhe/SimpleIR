@@ -1,0 +1,87 @@
+Naive: Precision - 0.5340909090909091, Recall - 0.39495798319327735, F1 Score - 0.45410628019323673
+PennTreeBank: Precision - 0.8863636363636362, Recall - 0.8863636363636362, F1 Score - 0.8863636363636362
+
+Input Text: ['This is sent1', 'this is sent2']
+Expected: [['This', 'is', 'sent1'], ['this', 'is', 'sent2']]
+Naive Output: [['This', 'is', 'sent1'], ['this', 'is', 'sent2']]
+Naive Passed: True
+PennTreeBank Output: [['This', 'is', 'sent1'], ['this', 'is', 'sent2']]
+PennTreeBank Passed: True
+
+Input Text: ['Hello, world!']
+Expected: [['Hello', ',', 'world', '!']]
+Naive Output: [['Hello', ',', 'world', '!']]
+Naive Passed: True
+PennTreeBank Output: [['Hello', ',', 'world', '!']]
+PennTreeBank Passed: True
+
+Input Text: ['I have 2 apples and 5 oranges.']
+Expected: [['I', 'have', '2', 'apples', 'and', '5', 'oranges', '.']]
+Naive Output: [['I', 'have', '2', 'apples', 'and', '5', 'oranges', '.']]
+Naive Passed: True
+PennTreeBank Output: [['I', 'have', '2', 'apples', 'and', '5', 'oranges', '.']]
+PennTreeBank Passed: True
+
+Input Text: ["I'm going to the store.", "He'll be back soon."]
+Expected: [['I', "'m", 'going', 'to', 'the', 'store', '.'], ['He', "'ll", 'be', 'back', 'soon', '.']]
+Naive Output: [["I'm", 'going', 'to', 'the', 'store', '.'], ["He'll", 'be', 'back', 'soon', '.']]
+Naive Passed: False
+PennTreeBank Output: [['I', "'m", 'going', 'to', 'the', 'store', '.'], ['He', "'ll", 'be', 'back', 'soon', '.']]
+PennTreeBank Passed: True
+
+Input Text: ["John's car is red.", "The cat's toy is missing."]
+Expected: [['John', "'s", 'car', 'is', 'red', '.'], ['The', 'cat', "'s", 'toy', 'is', 'missing', '.']]
+Naive Output: [["John's", 'car', 'is', 'red', '.'], ['The', "cat's", 'toy', 'is', 'missing', '.']]
+Naive Passed: False
+PennTreeBank Output: [['John', "'s", 'car', 'is', 'red', '.'], ['The', 'cat', "'s", 'toy', 'is', 'missing', '.']]
+PennTreeBank Passed: True
+
+Input Text: ['I live in the U.S.A.', 'She works at C.I.A.']
+Expected: [['I', 'live', 'in', 'the', 'U.S.A', '.'], ['She', 'works', 'at', 'C.I.A', '.']]
+Naive Output: [['I', 'live', 'in', 'the', 'U', '.', 'S', '.', 'A', '.'], ['She', 'works', 'at', 'C', '.', 'I', '.', 'A', '.']]
+Naive Passed: False
+PennTreeBank Output: [['I', 'live', 'in', 'the', 'U.S.A', '.'], ['She', 'works', 'at', 'C.I.A', '.']]
+PennTreeBank Passed: True
+
+Input Text: ['The man-made bridge is strong.', 'We need to re-evaluate the plan.']
+Expected: [['The', 'man-made', 'bridge', 'is', 'strong', '.'], ['We', 'need', 'to', 're-evaluate', 'the', 'plan', '.']]
+Naive Output: [['The', 'man', '-', 'made', 'bridge', 'is', 'strong', '.'], ['We', 'need', 'to', 're', '-', 'evaluate', 'the', 'plan', '.']]
+Naive Passed: False
+PennTreeBank Output: [['The', 'man-made', 'bridge', 'is', 'strong', '.'], ['We', 'need', 'to', 're-evaluate', 'the', 'plan', '.']]
+PennTreeBank Passed: True
+
+Input Text: ['Visit https://www.example.com for more information.']
+Expected: [['Visit', 'https://www.example.com', 'for', 'more', 'information', '.']]
+Naive Output: [['Visit', 'https', ':', '/', '/', 'www', '.', 'example', '.', 'com', 'for', 'more', 'information', '.']]
+Naive Passed: False
+PennTreeBank Output: [['Visit', 'https', ':', '//www.example.com', 'for', 'more', 'information', '.']]
+PennTreeBank Passed: False
+
+Input Text: ['I love pizza 🍕!', 'That movie was 🔥.']
+Expected: [['I', 'love', 'pizza', '🍕', '!'], ['That', 'movie', 'was', '🔥', '.']]
+Naive Output: [['I', 'love', 'pizza', '🍕', '!'], ['That', 'movie', 'was', '🔥', '.']]
+Naive Passed: True
+PennTreeBank Output: [['I', 'love', 'pizza', '🍕', '!'], ['That', 'movie', 'was', '🔥', '.']]
+PennTreeBank Passed: True
+
+Input Text: ['']
+Expected: [[]]
+Naive Output: [[]]
+Naive Passed: True
+PennTreeBank Output: [[]]
+PennTreeBank Passed: True
+
+Input Text: ['This is a very long sentence with multiple clauses, and it includes various punctuation marks, such as commas, semicolons; colons: and even parentheses (like this one).']
+Expected: [['This', 'is', 'a', 'very', 'long', 'sentence', 'with', 'multiple', 'clauses', ',', 'and', 'it', 'includes', 'various', 'punctuation', 'marks', ',', 'such', 'as', 'commas', ',', 'semicolons', ';', 'colons', ':', 'and', 'even', 'parentheses', '(', 'like', 'this', 'one', ')', '.']]
+Naive Output: [['This', 'is', 'a', 'very', 'long', 'sentence', 'with', 'multiple', 'clauses', ',', 'and', 'it', 'includes', 'various', 'punctuation', 'marks', ',', 'such', 'as', 'commas', ',', 'semicolons', ';', 'colons', ':', 'and', 'even', 'parentheses', '(', 'like', 'this', 'one', ')', '.']]
+Naive Passed: True
+PennTreeBank Output: [['This', 'is', 'a', 'very', 'long', 'sentence', 'with', 'multiple', 'clauses', ',', 'and', 'it', 'includes', 'various', 'punctuation', 'marks', ',', 'such', 'as', 'commas', ',', 'semicolons', ';', 'colons', ':', 'and', 'even', 'parentheses', '(', 'like', 'this', 'one', ')', '.']]
+PennTreeBank Passed: True
+
+Input Text: ['<p>This is a <b>bold</b> sentence.</p>']
+Expected: [['<p>', 'This', 'is', 'a', '<b>', 'bold', '</b>', 'sentence', '.', '</p>']]
+Naive Output: [['<', 'p', '>', 'This', 'is', 'a', '<', 'b', '>', 'bold', '<', '/', 'b', '>', 'sentence', '.', '<', '/', 'p', '>']]
+Naive Passed: False
+PennTreeBank Output: [['<', 'p', '>', 'This', 'is', 'a', '<', 'b', '>', 'bold', '<', '/b', '>', 'sentence.', '<', '/p', '>']]
+PennTreeBank Passed: False
+
