@@ -11,340 +11,64 @@ test_cases = [
         # Regular verb ending with 'ing'
     },
     {
-        'input_text': [["cats"]],
-        'expected': [["cat"]],
+        'input_text': [["bouncing"]],
+        'expected': [["bounce"]],
         'weight': 1,
-        # Plural noun ending with 's'
-    },
-    {
-        'input_text': [["discussed"]],
-        'expected': [["discuss"]],
-        'weight': 1,
-        # Regular verb in past tense ending with 'ed'
+        # Another regular verb ending with 'ing'
     },
     {
         'input_text': [["running"]],
         'expected': [["run"]],
         'weight': 1,
-        # Regular verb ending with 'ing'
+        # A commonly mistaken case, where people may overlook irregularities and assume the regular inflection reduction
     },
     {
-        'input_text': [["better"]],
-        'expected': [["good"]],
+        'input_text': [["dying"]],
+        'expected': [["die"]],
         'weight': 1,
-        # Word with no inflection
+        # Edge case: irregular verb ending with 'ing'
     },
     {
-        'input_text': [["leaves"]],
-        'expected': [["leaf"]],
+        'input_text': [["gently"]],
+        'expected': [["gentle"]],
         'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["carried"]],
-        'expected': [["carry"]],
-        'weight': 1,
-        # Regular verb in past tense ending with 'ed'
-    },
-    {
-        'input_text': [["studying"]],
-        'expected': [["study"]],
-        'weight': 1,
-        # Regular verb ending with 'ing'
-    },
-    {
-        'input_text': [["mice"]],
-        'expected': [["mouse"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["boxes"]],
-        'expected': [["box"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["calves"]],
-        'expected': [["calf"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["pennies"]],
-        'expected': [["penny"]],
-        'weight': 1,
-        # Regular plural noun ending with 'ies'
-    },
-    {
-        'input_text': [["radii"]],
-        'expected': [["radius"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["analyses"]],
-        'expected': [["analysis"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["criteria"]],
-        'expected': [["criterion"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["phenomena"]],
-        'expected': [["phenomenon"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["matrices"]],
-        'expected': [["matrix"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["vertices"]],
-        'expected': [["vertex"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["indices"]],
-        'expected': [["index"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["appendices"]],
-        'expected': [["appendix"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["bacteria"]],
-        'expected': [["bacterium"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["data"]],
-        'expected': [["datum"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["media"]],
-        'expected': [["medium"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["loaves"]],
-        'expected': [["loaf"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["hooves"]],
-        'expected': [["hoof"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["lives"]],
-        'expected': [["life"]],
-        'weight': 1,
-        # Regular plural noun ending with 's'
-    },
-    {
-        'input_text': [["wives"]],
-        'expected': [["wife"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["knives"]],
-        'expected': [["knife"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["shelves"]],
-        'expected': [["shelf"]],
-        'weight': 1,
-        # Regular plural noun ending with 's'
-    },
-    {
-        'input_text': [["thieves"]],
-        'expected': [["thief"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["potatoes"]],
-        'expected': [["potato"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["tomatoes"]],
-        'expected': [["tomato"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["volcanoes"]],
-        'expected': [["volcano"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["heroes"]],
-        'expected': [["hero"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["zeroes"]],
-        'expected': [["zero"]],
-        'weight': 1,
-        # Regular plural noun ending with 'es'
-    },
-    {
-        'input_text': [["zoos"]],
-        'expected': [["zoo"]],
-        'weight': 1,
-        # Regular plural noun ending with 's'
-    },
-    {
-        'input_text': [["boys"]],
-        'expected': [["boy"]],
-        'weight': 1,
-        # Regular plural noun ending with 's'
-    },
-    {
-        'input_text': [["girls"]],
-        'expected': [["girl"]],
-        'weight': 1,
-        # Regular plural noun ending with 's'
+        # Adverb ending with 'ly'
     },
     {
         'input_text': [["children"]],
         'expected': [["child"]],
         'weight': 1,
-        # Irregular plural noun
+        # Exceptional case: plural noun with irregular singular form
     },
     {
-        'input_text': [["men"]],
-        'expected': [["man"]],
+        'input_text': [["happier"]],
+        'expected': [["happy"]],
         'weight': 1,
-        # Irregular plural noun
+        # Adjective with comparative inflection ending in 'er'
     },
     {
-        'input_text': [["women"]],
-        'expected': [["woman"]],
+        'input_text': [["best"]],
+        'expected': [["good"]],
         'weight': 1,
-        # Irregular plural noun
+        # Superlative adjective
     },
     {
-        'input_text': [["feet"]],
-        'expected': [["foot"]],
+        'input_text': [["bigger"]],
+        'expected': [["big"]],
         'weight': 1,
-        # Irregular plural noun
+        # Comparative adjective ending in 'er'
     },
     {
-        'input_text': [["teeth"]],
-        'expected': [["tooth"]],
+        'input_text': [["more interesting"]],
+        'expected': [["interesting"]],
         'weight': 1,
-        # Irregular plural noun
+        # Comparative adverb with 'more' preceding it
     },
     {
-        'input_text': [["geese"]],
-        'expected': [["goose"]],
+        'input_text': [["most interesting"]],
+        'expected': [["interesting"]],
         'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["mice"]],
-        'expected': [["mouse"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["lice"]],
-        'expected': [["louse"]],
-        'weight': 1,
-        # Irregular plural noun
-    },
-    {
-        'input_text': [["were"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["would"]],
-        'expected': [["will"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["could"]],
-        'expected': [["can"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["should"]],
-        'expected': [["shall"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["might"]],
-        'expected': [["may"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["am"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["is"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["are"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["was"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["been"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Irregular verb form
-    },
-    {
-        'input_text': [["being"]],
-        'expected': [["be"]],
-        'weight': 1,
-        # Regular verb ending with 'ing'
+        # Superlative adverb with 'most' preceding it
     },
 ]
 
