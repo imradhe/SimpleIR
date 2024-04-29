@@ -1,5 +1,5 @@
-Naive: Precision - 0.7192307692307692, Recall - 0.6131147540983606, F1 Score - 0.6619469026548671
-Punkt: Precision - 0.6961538461538462, Recall - 0.5468277945619335, F1 Score - 0.6125211505922166
+Naive: Precision - 0.7192307692307692, Recall - 1.0, F1 Score - 0.8366890380313199
+Punkt: Precision - 0.6961538461538462, Recall - 1.0, F1 Score - 0.8208616780045351
 
 Input Text: This is a simple sentence. Another sentence follows!
 Expected: ['This is a simple sentence.', 'Another sentence follows!']
