@@ -18,7 +18,7 @@ class SpacyIR:
         self.tfidf_vectorizer = TfidfVectorizer()
         self.tfidf_matrix = None
         self.cosine_similarities = None
-        self.nlp = spacy.load("en_core_web_sm")
+        self.nlp = spacy.load("en_core_web_md")
 
         # Load or process data
         self.load_or_process_data()
@@ -92,7 +92,7 @@ class SpacyIR:
             for rank, index in enumerate(sorted_indices, start=1):
                 document_id = self.documents[index]["id"]
                 score = query_similarities[0][index]
-                results.append({"document_id": document_id, "score": score, "rank": rank})
+                results.append({"id": document_id, "score": score, "rank": rank})
 
             # Save query results
             query_results[query_id] = {"query": query_text, "results": results}
@@ -136,7 +136,7 @@ class SpacyIR:
         for rank, index in enumerate(sorted_indices, start=1):
             document_id = self.documents[index]["id"]
             score = query_similarities[0][index]
-            results.append({"document_id": document_id, "score": score, "rank": rank})
+            results.append({"id": document_id, "score": score, "rank": rank})
 
         # Save results to a file
         output_file_path = os.path.join(self.output_dir, 'custom_query.json')
@@ -149,10 +149,7 @@ class SpacyIR:
 documents_path = 'cranfield/cran_docs.json'
 queries_path = 'cranfield/cran_queries.json'
 output_dir = 'trails/'
+ground_truth_file = 'cranfield/cran_qrels.json'
 
 ir_system = SpacyIR(documents_path, queries_path, output_dir)
-
-# Example of using the process_single_query method
-query_text = "what similarity laws must be obeyed when constructing aeroelastic models of heated high speed aircraft ."
-results = ir_system.run_queries()
-print("Saved in trails/custom_query.json")
+ir_system.run_queries()
