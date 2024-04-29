@@ -122,7 +122,7 @@ print(f"Naive: Precision - {effectiveness_metrics['naive']['precision']}, Recall
 print(f"PennTreeBank: Precision - {effectiveness_metrics['pennTreeBank']['precision']}, Recall - {effectiveness_metrics['pennTreeBank']['recall']}, F1 Score - {effectiveness_metrics['pennTreeBank']['f1_score']}")
 
 # Efficiency testing
-input_sizes = [10, 100, 1000, 10000]
+input_sizes = [100, 1000, 10000, 100000]  # input sizes
 naive_times, pennTreeBank_times = [], []
 
 for num_sentences in input_sizes:
@@ -161,21 +161,8 @@ with open('tests/hypothesis/tokenization.txt', 'w', encoding='utf-8') as file:
         file.write("Approach 'pennTreeBank' performs better than approach 'naive'.")
 
 
+
 # Print hypothesis testing results
-print("T-statistic:", t_statistic_precision)
-print("P-value:", p_value_precision)
-if p_value_precision < alpha:
-    print("Reject the null hypothesis. There is a significant difference between the precision scores of the two approaches.")
-else:
-    print("Fail to reject the null hypothesis. There is no significant difference between the precision scores of the two approaches.")
-
-
-# Compare p-value to alpha
-if p_value_precision < alpha:
-    print("Reject the null hypothesis.")
-    if t_statistic_precision > 0:
-        print("Approach 'naive' performs better than approach 'pennTreeBank'.")
-    else:
-        print("Approach 'pennTreeBank' performs better than approach 'naive'.")
-else:
-    print("Fail to reject the null hypothesis. There is no significant difference in effectiveness between the two approaches.")
+print("Hypothesis Testing Results:")
+with open('tests/hypothesis/tokenization.txt', 'r', encoding='utf-8') as file:
+    print(file.read())
