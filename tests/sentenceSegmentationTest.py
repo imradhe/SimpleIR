@@ -245,7 +245,7 @@ print(f"Punkt: Precision - {effectiveness_metrics['punkt']['precision']}, Recall
 
 
 sentence_segmentation = SentenceSegmentation()
-input_sizes = [10, 100, 1000, 10000]  # input sizes
+input_sizes = [100, 1000, 10000, 100000]  # input sizes
 
 naive_times, punkt_times = sentence_segmentation.efficiency(input_sizes)
 
@@ -287,20 +287,6 @@ with open('tests/hypothesis/sentenceSegmentation.txt', 'w', encoding='utf-8') as
 
 
 # Print hypothesis testing results
-print("T-statistic:", t_statistic_precision)
-print("P-value:", p_value_precision)
-if p_value_precision < alpha:
-    print("Reject the null hypothesis. There is a significant difference between the precision scores of the two approaches.")
-else:
-    print("Fail to reject the null hypothesis. There is no significant difference between the precision scores of the two approaches.")
-
-
-# Compare p-value to alpha
-if p_value_precision < alpha:
-    print("Reject the null hypothesis.")
-    if t_statistic_precision > 0:
-        print("Approach 'Naive' performs better than approach 'Punkt'.")
-    else:
-        print("Approach 'Punkt' performs better than approach 'Naive'.")
-else:
-    print("Fail to reject the null hypothesis. There is no significant difference in effectiveness between the two approaches.")
+print("Hypothesis Testing Results:")
+with open('tests/hypothesis/sentenceSegmentation.txt', 'r', encoding='utf-8') as file:
+    print(file.read())
