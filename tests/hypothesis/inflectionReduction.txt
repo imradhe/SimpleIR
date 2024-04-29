@@ -1,0 +1,21 @@
+T-statistic for precision scores (stem vs lemmatize): 11.7684309804636
+P-value for precision scores (stem vs lemmatize): 6.00676884251032e-08
+
+Reject the null hypothesis. There is a significant difference between the precision scores of stem and lemmatize.
+
+Approach 'stem' performs better than approach 'lemmatize'.
+
+T-statistic for precision scores (stem vs hybrid): -11.768430980463602
+P-value for precision scores (stem vs hybrid): 6.006768842510299e-08
+
+Reject the null hypothesis. There is a significant difference between the precision scores of stem and hybrid.
+
+Approach 'hybrid' performs better than approach 'stem'.
+
+T-statistic for precision scores (lemmatize vs hybrid): -11.7684309804636
+P-value for precision scores (lemmatize vs hybrid): 6.00676884251032e-08
+
+Reject the null hypothesis. There is a significant difference between the precision scores of lemmatize and hybrid.
+
+Approach 'hybrid' performs better than approach 'lemmatize'.
+
