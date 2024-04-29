@@ -116,25 +116,13 @@ class Tokenization():
                 'weight': weight
             })
 
-        weighted_naive_true_positives = sum(case['weight'] for case in results if case['naive_passed'])
-        weighted_naive_false_positives = sum(case['weight'] for case in results if not case['naive_passed'] and case['naive_output'])
-        weighted_naive_false_negatives = sum(case['weight'] * len(case['expected']) for case in results if not case['naive_passed'])
-        weighted_pennTreeBank_true_positives = sum(case['weight'] for case in results if case['pennTreeBank_passed'])
-        weighted_pennTreeBank_false_positives = sum(case['weight'] for case in results if not case['pennTreeBank_passed'] and case['pennTreeBank_output'])
-        weighted_pennTreeBank_false_negatives = sum(case['weight'] * len(case['expected']) for case in results if not case['pennTreeBank_passed'])
-
-        weighted_naive_precision = weighted_naive_true_positives / (weighted_naive_true_positives + weighted_naive_false_positives) if weighted_naive_true_positives + weighted_naive_false_positives > 0 else 0
-        weighted_naive_recall = weighted_naive_true_positives / (weighted_naive_true_positives + weighted_naive_false_negatives) if weighted_naive_true_positives + weighted_naive_false_negatives > 0 else 0
-        weighted_naive_f1_score = 2 * (weighted_naive_precision * weighted_naive_recall) / (weighted_naive_precision + weighted_naive_recall) if weighted_naive_precision + weighted_naive_recall > 0 else 0
-
-        weighted_pennTreeBank_precision = weighted_pennTreeBank_true_positives / (weighted_pennTreeBank_true_positives + weighted_pennTreeBank_false_positives) if weighted_pennTreeBank_true_positives + weighted_pennTreeBank_false_positives > 0 else 0
-        weighted_pennTreeBank_recall = weighted_pennTreeBank_true_positives / (weighted_pennTreeBank_true_positives + weighted_pennTreeBank_false_negatives) if weighted_pennTreeBank_true_positives + weighted_pennTreeBank_false_negatives > 0 else 0
-        weighted_pennTreeBank_f1_score = 2 * (weighted_pennTreeBank_precision * weighted_pennTreeBank_recall) / (weighted_pennTreeBank_precision + weighted_pennTreeBank_recall) if weighted_pennTreeBank_precision + weighted_pennTreeBank_recall > 0 else 0
+        naive_metrics = calculate_metrics(results, 'naive')
+        pennTreeBank_metrics = calculate_metrics(results, 'pennTreeBank')
 
         return {
             'results': results,
-            'naive': {'precision': weighted_naive_precision, 'recall': weighted_naive_recall, 'f1_score': weighted_naive_f1_score},
-            'pennTreeBank': {'precision': weighted_pennTreeBank_precision, 'recall': weighted_pennTreeBank_recall, 'f1_score': weighted_pennTreeBank_f1_score},
+            'naive': naive_metrics,
+            'pennTreeBank': pennTreeBank_metrics,
             'total_weight': total_weight
         }
     
