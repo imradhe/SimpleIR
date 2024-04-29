@@ -125,28 +125,16 @@ class SentenceSegmentation():
                 'weight': weight
             })
 
-        weighted_naive_true_positives = sum(case['weight'] for case in results if case['naive_passed'])
-        weighted_naive_false_positives = sum(case['weight'] for case in results if not case['naive_passed'] and case['naive_output'])
-        weighted_naive_false_negatives = sum(case['weight'] * len(case['expected']) for case in results if not case['naive_passed'])
-        weighted_punkt_true_positives = sum(case['weight'] for case in results if case['punkt_passed'])
-        weighted_punkt_false_positives = sum(case['weight'] for case in results if not case['punkt_passed'] and case['punkt_output'])
-        weighted_punkt_false_negatives = sum(case['weight'] * len(case['expected']) for case in results if not case['punkt_passed'])
-
-        weighted_naive_precision = weighted_naive_true_positives / (weighted_naive_true_positives + weighted_naive_false_positives) if weighted_naive_true_positives + weighted_naive_false_positives > 0 else 0
-        weighted_naive_recall = weighted_naive_true_positives / (weighted_naive_true_positives + weighted_naive_false_negatives) if weighted_naive_true_positives + weighted_naive_false_negatives > 0 else 0
-        weighted_naive_f1_score = 2 * (weighted_naive_precision * weighted_naive_recall) / (weighted_naive_precision + weighted_naive_recall) if weighted_naive_precision + weighted_naive_recall > 0 else 0
-
-        weighted_punkt_precision = weighted_punkt_true_positives / (weighted_punkt_true_positives + weighted_punkt_false_positives) if weighted_punkt_true_positives + weighted_punkt_false_positives > 0 else 0
-        weighted_punkt_recall = weighted_punkt_true_positives / (weighted_punkt_true_positives + weighted_punkt_false_negatives) if weighted_punkt_true_positives + weighted_punkt_false_negatives > 0 else 0
-        weighted_punkt_f1_score = 2 * (weighted_punkt_precision * weighted_punkt_recall) / (weighted_punkt_precision + weighted_punkt_recall) if weighted_punkt_precision + weighted_punkt_recall > 0 else 0
+        naive_metrics = calculate_metrics(results, 'naive')
+        punkt_metrics = calculate_metrics(results, 'punkt')
 
         return {
             'results': results,
-            'naive': {'precision': weighted_naive_precision, 'recall': weighted_naive_recall, 'f1_score': weighted_naive_f1_score},
-            'punkt': {'precision': weighted_punkt_precision, 'recall': weighted_punkt_recall, 'f1_score': weighted_punkt_f1_score},
+            'naive': naive_metrics,
+            'punkt': punkt_metrics,
             'total_weight': total_weight
         }
-    
+       
     def efficiency(self, input_sizes):
         naive_times = []
         punkt_times = []
