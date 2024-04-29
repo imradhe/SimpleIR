@@ -1,0 +1,20 @@
+Input Size: 100
+Stemming Approach Time: 0.015506744384765625
+Lemmatization Approach Time: 0.0
+Hybrid Approach Time: 0.0
+
+Input Size: 1000
+Stemming Approach Time: 0.045328617095947266
+Lemmatization Approach Time: 0.007577180862426758
+Hybrid Approach Time: 0.046828269958496094
+
+Input Size: 10000
+Stemming Approach Time: 0.2914750576019287
+Lemmatization Approach Time: 0.23003935813903809
+Hybrid Approach Time: 0.5323255062103271
+
+Input Size: 100000
+Stemming Approach Time: 3.1012277603149414
+Lemmatization Approach Time: 2.3500161170959473
+Hybrid Approach Time: 5.3804521560668945
+
