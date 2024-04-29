@@ -1,6 +1,6 @@
-Stemming: Precision - 0.18181818181818182, Recall - 0.18181818181818182, F1 Score - 0.18181818181818182
-Lemmatization: Precision - 0.09090909090909091, Recall - 0.09090909090909091, F1 Score - 0.09090909090909091
-Hybrid: Precision - 0.2727272727272727, Recall - 0.2727272727272727, F1 Score - 0.2727272727272727
+Stemming: Precision - 0.31775700934579443, Recall - 1.0, F1 Score - 0.4822695035460993
+Lemmatization: Precision - 0.21495327102803738, Recall - 1.0, F1 Score - 0.35384615384615387
+Hybrid: Precision - 0.3457943925233645, Recall - 1.0, F1 Score - 0.5138888888888888
 
 Input Text: [['cycling']]
 Expected: [['cycle']]
@@ -100,4 +100,22 @@ Lemmatize Output: [['most interesting']]
 Lemmatize Passed: False
 Hybrid Output: [['most interest']]
 Hybrid Passed: False
+
+Input Text: [[]]
+Expected: [[]]
+Stem Output: [[]]
+Stem Passed: True
+Lemmatize Output: [[]]
+Lemmatize Passed: True
+Hybrid Output: [[]]
+Hybrid Passed: True
+
+Input Text: [[' ']]
+Expected: [[' ']]
+Stem Output: [[' ']]
+Stem Passed: True
+Lemmatize Output: [[' ']]
+Lemmatize Passed: True
+Hybrid Output: [[' ']]
+Hybrid Passed: True
 
