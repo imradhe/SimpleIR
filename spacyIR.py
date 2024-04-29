@@ -90,9 +90,9 @@ class SpacyIR:
             # Collect results
             results = []
             for rank, index in enumerate(sorted_indices, start=1):
-                document_id = self.documents[index]["id"]
+                id = self.documents[index]["id"]
                 score = query_similarities[0][index]
-                results.append({"id": document_id, "score": score, "rank": rank})
+                results.append({"id": id, "score": score, "rank": rank})
 
             # Save query results
             query_results[query_id] = {"query": query_text, "results": results}
@@ -134,9 +134,9 @@ class SpacyIR:
         # Collect results
         results = []
         for rank, index in enumerate(sorted_indices, start=1):
-            document_id = self.documents[index]["id"]
+            id = self.documents[index]["id"]
             score = query_similarities[0][index]
-            results.append({"id": document_id, "score": score, "rank": rank})
+            results.append({"id": id, "score": score, "rank": rank})
 
         # Save results to a file
         output_file_path = os.path.join(self.output_dir, 'custom_query.json')
@@ -148,8 +148,7 @@ class SpacyIR:
 # Example usage:
 documents_path = 'cranfield/cran_docs.json'
 queries_path = 'cranfield/cran_queries.json'
-output_dir = 'trails/'
-ground_truth_file = 'cranfield/cran_qrels.json'
+output_dir = 'output/'
 
 ir_system = SpacyIR(documents_path, queries_path, output_dir)
 ir_system.run_queries()
