@@ -1,16 +1,16 @@
-Input Size: 10
-Naive Approach Time: 0.0
-Punkt Approach Time: 0.0009007692337036133
-
 Input Size: 100
-Naive Approach Time: 0.0005056381225585938
-Punkt Approach Time: 0.0015146732330322266
+Naive Approach Time: 0.0
+Punkt Approach Time: 0.0028697967529296873
 
 Input Size: 1000
-Naive Approach Time: 0.004213452339172363
-Punkt Approach Time: 0.01573989391326904
+Naive Approach Time: 0.0035116910934448243
+Punkt Approach Time: 0.015520572662353516
 
 Input Size: 10000
-Naive Approach Time: 0.03301534652709961
-Punkt Approach Time: 0.1710124731063843
+Naive Approach Time: 0.03163182735443115
+Punkt Approach Time: 0.1569362163543701
+
+Input Size: 100000
+Naive Approach Time: 0.333788537979126
+Punkt Approach Time: 1.6070257425308228
 
