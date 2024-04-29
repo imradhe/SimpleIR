@@ -1,6 +1,6 @@
-Stemming: Precision - 0.2037037037037037, Recall - 0.2037037037037037, F1 Score - 0.2037037037037037
-Lemmatization: Precision - 0.6111111111111112, Recall - 0.6111111111111112, F1 Score - 0.6111111111111112
-Hybrid: Precision - 0.5370370370370371, Recall - 0.5370370370370371, F1 Score - 0.5370370370370371
+Stemming: Precision - 0.18181818181818182, Recall - 0.18181818181818182, F1 Score - 0.18181818181818182
+Lemmatization: Precision - 0.09090909090909091, Recall - 0.09090909090909091, F1 Score - 0.09090909090909091
+Hybrid: Precision - 0.2727272727272727, Recall - 0.2727272727272727, F1 Score - 0.2727272727272727
 
 Input Text: [['cycling']]
 Expected: [['cycle']]
@@ -11,23 +11,14 @@ Lemmatize Passed: False
 Hybrid Output: [['cycl']]
 Hybrid Passed: False
 
-Input Text: [['cats']]
-Expected: [['cat']]
-Stem Output: [['cat']]
-Stem Passed: True
-Lemmatize Output: [['cat']]
-Lemmatize Passed: True
-Hybrid Output: [['cat']]
-Hybrid Passed: True
-
-Input Text: [['discussed']]
-Expected: [['discuss']]
-Stem Output: [['discuss']]
-Stem Passed: True
-Lemmatize Output: [['discussed']]
+Input Text: [['bouncing']]
+Expected: [['bounce']]
+Stem Output: [['bounc']]
+Stem Passed: False
+Lemmatize Output: [['bouncing']]
 Lemmatize Passed: False
-Hybrid Output: [['discuss']]
-Hybrid Passed: True
+Hybrid Output: [['bounc']]
+Hybrid Passed: False
 
 Input Text: [['running']]
 Expected: [['run']]
@@ -38,284 +29,23 @@ Lemmatize Passed: False
 Hybrid Output: [['run']]
 Hybrid Passed: True
 
-Input Text: [['better']]
-Expected: [['good']]
-Stem Output: [['better']]
-Stem Passed: False
-Lemmatize Output: [['better']]
+Input Text: [['dying']]
+Expected: [['die']]
+Stem Output: [['die']]
+Stem Passed: True
+Lemmatize Output: [['dying']]
 Lemmatize Passed: False
-Hybrid Output: [['better']]
-Hybrid Passed: False
-
-Input Text: [['leaves']]
-Expected: [['leaf']]
-Stem Output: [['leav']]
-Stem Passed: False
-Lemmatize Output: [['leaf']]
-Lemmatize Passed: True
-Hybrid Output: [['leaf']]
+Hybrid Output: [['die']]
 Hybrid Passed: True
 
-Input Text: [['carried']]
-Expected: [['carry']]
-Stem Output: [['carri']]
+Input Text: [['gently']]
+Expected: [['gentle']]
+Stem Output: [['gentli']]
 Stem Passed: False
-Lemmatize Output: [['carried']]
+Lemmatize Output: [['gently']]
 Lemmatize Passed: False
-Hybrid Output: [['carri']]
+Hybrid Output: [['gentli']]
 Hybrid Passed: False
-
-Input Text: [['studying']]
-Expected: [['study']]
-Stem Output: [['studi']]
-Stem Passed: False
-Lemmatize Output: [['studying']]
-Lemmatize Passed: False
-Hybrid Output: [['studi']]
-Hybrid Passed: False
-
-Input Text: [['mice']]
-Expected: [['mouse']]
-Stem Output: [['mice']]
-Stem Passed: False
-Lemmatize Output: [['mouse']]
-Lemmatize Passed: True
-Hybrid Output: [['mous']]
-Hybrid Passed: False
-
-Input Text: [['boxes']]
-Expected: [['box']]
-Stem Output: [['box']]
-Stem Passed: True
-Lemmatize Output: [['box']]
-Lemmatize Passed: True
-Hybrid Output: [['box']]
-Hybrid Passed: True
-
-Input Text: [['calves']]
-Expected: [['calf']]
-Stem Output: [['calv']]
-Stem Passed: False
-Lemmatize Output: [['calf']]
-Lemmatize Passed: True
-Hybrid Output: [['calf']]
-Hybrid Passed: True
-
-Input Text: [['pennies']]
-Expected: [['penny']]
-Stem Output: [['penni']]
-Stem Passed: False
-Lemmatize Output: [['penny']]
-Lemmatize Passed: True
-Hybrid Output: [['penni']]
-Hybrid Passed: False
-
-Input Text: [['radii']]
-Expected: [['radius']]
-Stem Output: [['radii']]
-Stem Passed: False
-Lemmatize Output: [['radius']]
-Lemmatize Passed: True
-Hybrid Output: [['radiu']]
-Hybrid Passed: False
-
-Input Text: [['analyses']]
-Expected: [['analysis']]
-Stem Output: [['analys']]
-Stem Passed: False
-Lemmatize Output: [['analysis']]
-Lemmatize Passed: True
-Hybrid Output: [['analysi']]
-Hybrid Passed: False
-
-Input Text: [['criteria']]
-Expected: [['criterion']]
-Stem Output: [['criteria']]
-Stem Passed: False
-Lemmatize Output: [['criterion']]
-Lemmatize Passed: True
-Hybrid Output: [['criterion']]
-Hybrid Passed: True
-
-Input Text: [['phenomena']]
-Expected: [['phenomenon']]
-Stem Output: [['phenomena']]
-Stem Passed: False
-Lemmatize Output: [['phenomenon']]
-Lemmatize Passed: True
-Hybrid Output: [['phenomenon']]
-Hybrid Passed: True
-
-Input Text: [['matrices']]
-Expected: [['matrix']]
-Stem Output: [['matric']]
-Stem Passed: False
-Lemmatize Output: [['matrix']]
-Lemmatize Passed: True
-Hybrid Output: [['matrix']]
-Hybrid Passed: True
-
-Input Text: [['vertices']]
-Expected: [['vertex']]
-Stem Output: [['vertic']]
-Stem Passed: False
-Lemmatize Output: [['vertex']]
-Lemmatize Passed: True
-Hybrid Output: [['vertex']]
-Hybrid Passed: True
-
-Input Text: [['indices']]
-Expected: [['index']]
-Stem Output: [['indic']]
-Stem Passed: False
-Lemmatize Output: [['index']]
-Lemmatize Passed: True
-Hybrid Output: [['index']]
-Hybrid Passed: True
-
-Input Text: [['appendices']]
-Expected: [['appendix']]
-Stem Output: [['appendic']]
-Stem Passed: False
-Lemmatize Output: [['appendix']]
-Lemmatize Passed: True
-Hybrid Output: [['appendix']]
-Hybrid Passed: True
-
-Input Text: [['bacteria']]
-Expected: [['bacterium']]
-Stem Output: [['bacteria']]
-Stem Passed: False
-Lemmatize Output: [['bacteria']]
-Lemmatize Passed: False
-Hybrid Output: [['bacteria']]
-Hybrid Passed: False
-
-Input Text: [['data']]
-Expected: [['datum']]
-Stem Output: [['data']]
-Stem Passed: False
-Lemmatize Output: [['data']]
-Lemmatize Passed: False
-Hybrid Output: [['data']]
-Hybrid Passed: False
-
-Input Text: [['media']]
-Expected: [['medium']]
-Stem Output: [['media']]
-Stem Passed: False
-Lemmatize Output: [['medium']]
-Lemmatize Passed: True
-Hybrid Output: [['medium']]
-Hybrid Passed: True
-
-Input Text: [['loaves']]
-Expected: [['loaf']]
-Stem Output: [['loav']]
-Stem Passed: False
-Lemmatize Output: [['loaf']]
-Lemmatize Passed: True
-Hybrid Output: [['loaf']]
-Hybrid Passed: True
-
-Input Text: [['hooves']]
-Expected: [['hoof']]
-Stem Output: [['hoov']]
-Stem Passed: False
-Lemmatize Output: [['hoof']]
-Lemmatize Passed: True
-Hybrid Output: [['hoof']]
-Hybrid Passed: True
-
-Input Text: [['lives']]
-Expected: [['life']]
-Stem Output: [['live']]
-Stem Passed: False
-Lemmatize Output: [['life']]
-Lemmatize Passed: True
-Hybrid Output: [['life']]
-Hybrid Passed: True
-
-Input Text: [['wives']]
-Expected: [['wife']]
-Stem Output: [['wive']]
-Stem Passed: False
-Lemmatize Output: [['wife']]
-Lemmatize Passed: True
-Hybrid Output: [['wife']]
-Hybrid Passed: True
-
-Input Text: [['knives']]
-Expected: [['knife']]
-Stem Output: [['knive']]
-Stem Passed: False
-Lemmatize Output: [['knife']]
-Lemmatize Passed: True
-Hybrid Output: [['knife']]
-Hybrid Passed: True
-
-Input Text: [['shelves']]
-Expected: [['shelf']]
-Stem Output: [['shelv']]
-Stem Passed: False
-Lemmatize Output: [['shelf']]
-Lemmatize Passed: True
-Hybrid Output: [['shelf']]
-Hybrid Passed: True
-
-Input Text: [['volcanoes']]
-Expected: [['volcano']]
-Stem Output: [['volcano']]
-Stem Passed: True
-Lemmatize Output: [['volcano']]
-Lemmatize Passed: True
-Hybrid Output: [['volcano']]
-Hybrid Passed: True
-
-Input Text: [['heroes']]
-Expected: [['hero']]
-Stem Output: [['hero']]
-Stem Passed: True
-Lemmatize Output: [['hero']]
-Lemmatize Passed: True
-Hybrid Output: [['hero']]
-Hybrid Passed: True
-
-Input Text: [['zeroes']]
-Expected: [['zero']]
-Stem Output: [['zero']]
-Stem Passed: True
-Lemmatize Output: [['zero']]
-Lemmatize Passed: True
-Hybrid Output: [['zero']]
-Hybrid Passed: True
-
-Input Text: [['zoos']]
-Expected: [['zoo']]
-Stem Output: [['zoo']]
-Stem Passed: True
-Lemmatize Output: [['zoo']]
-Lemmatize Passed: True
-Hybrid Output: [['zoo']]
-Hybrid Passed: True
-
-Input Text: [['boys']]
-Expected: [['boy']]
-Stem Output: [['boy']]
-Stem Passed: True
-Lemmatize Output: [['boy']]
-Lemmatize Passed: True
-Hybrid Output: [['boy']]
-Hybrid Passed: True
-
-Input Text: [['girls']]
-Expected: [['girl']]
-Stem Output: [['girl']]
-Stem Passed: True
-Lemmatize Output: [['girl']]
-Lemmatize Passed: True
-Hybrid Output: [['girl']]
-Hybrid Passed: True
 
 Input Text: [['children']]
 Expected: [['child']]
@@ -326,165 +56,48 @@ Lemmatize Passed: True
 Hybrid Output: [['child']]
 Hybrid Passed: True
 
-Input Text: [['men']]
-Expected: [['man']]
-Stem Output: [['men']]
+Input Text: [['happier']]
+Expected: [['happy']]
+Stem Output: [['happier']]
 Stem Passed: False
-Lemmatize Output: [['men']]
+Lemmatize Output: [['happier']]
 Lemmatize Passed: False
-Hybrid Output: [['men']]
+Hybrid Output: [['happier']]
 Hybrid Passed: False
 
-Input Text: [['women']]
-Expected: [['woman']]
-Stem Output: [['women']]
+Input Text: [['best']]
+Expected: [['good']]
+Stem Output: [['best']]
 Stem Passed: False
-Lemmatize Output: [['woman']]
-Lemmatize Passed: True
-Hybrid Output: [['woman']]
-Hybrid Passed: True
-
-Input Text: [['feet']]
-Expected: [['foot']]
-Stem Output: [['feet']]
-Stem Passed: False
-Lemmatize Output: [['foot']]
-Lemmatize Passed: True
-Hybrid Output: [['foot']]
-Hybrid Passed: True
-
-Input Text: [['teeth']]
-Expected: [['tooth']]
-Stem Output: [['teeth']]
-Stem Passed: False
-Lemmatize Output: [['teeth']]
+Lemmatize Output: [['best']]
 Lemmatize Passed: False
-Hybrid Output: [['teeth']]
+Hybrid Output: [['best']]
 Hybrid Passed: False
 
-Input Text: [['geese']]
-Expected: [['goose']]
-Stem Output: [['gees']]
+Input Text: [['bigger']]
+Expected: [['big']]
+Stem Output: [['bigger']]
 Stem Passed: False
-Lemmatize Output: [['goose']]
-Lemmatize Passed: True
-Hybrid Output: [['goos']]
-Hybrid Passed: False
-
-Input Text: [['mice']]
-Expected: [['mouse']]
-Stem Output: [['mice']]
-Stem Passed: False
-Lemmatize Output: [['mouse']]
-Lemmatize Passed: True
-Hybrid Output: [['mous']]
-Hybrid Passed: False
-
-Input Text: [['lice']]
-Expected: [['louse']]
-Stem Output: [['lice']]
-Stem Passed: False
-Lemmatize Output: [['louse']]
-Lemmatize Passed: True
-Hybrid Output: [['lous']]
-Hybrid Passed: False
-
-Input Text: [['were']]
-Expected: [['be']]
-Stem Output: [['were']]
-Stem Passed: False
-Lemmatize Output: [['were']]
+Lemmatize Output: [['bigger']]
 Lemmatize Passed: False
-Hybrid Output: [['were']]
+Hybrid Output: [['bigger']]
 Hybrid Passed: False
 
-Input Text: [['would']]
-Expected: [['will']]
-Stem Output: [['would']]
+Input Text: [['more interesting']]
+Expected: [['interesting']]
+Stem Output: [['more interest']]
 Stem Passed: False
-Lemmatize Output: [['would']]
+Lemmatize Output: [['more interesting']]
 Lemmatize Passed: False
-Hybrid Output: [['would']]
+Hybrid Output: [['more interest']]
 Hybrid Passed: False
 
-Input Text: [['could']]
-Expected: [['can']]
-Stem Output: [['could']]
+Input Text: [['most interesting']]
+Expected: [['interesting']]
+Stem Output: [['most interest']]
 Stem Passed: False
-Lemmatize Output: [['could']]
+Lemmatize Output: [['most interesting']]
 Lemmatize Passed: False
-Hybrid Output: [['could']]
+Hybrid Output: [['most interest']]
 Hybrid Passed: False
-
-Input Text: [['should']]
-Expected: [['shall']]
-Stem Output: [['should']]
-Stem Passed: False
-Lemmatize Output: [['should']]
-Lemmatize Passed: False
-Hybrid Output: [['should']]
-Hybrid Passed: False
-
-Input Text: [['might']]
-Expected: [['may']]
-Stem Output: [['might']]
-Stem Passed: False
-Lemmatize Output: [['might']]
-Lemmatize Passed: False
-Hybrid Output: [['might']]
-Hybrid Passed: False
-
-Input Text: [['am']]
-Expected: [['be']]
-Stem Output: [['am']]
-Stem Passed: False
-Lemmatize Output: [['am']]
-Lemmatize Passed: False
-Hybrid Output: [['am']]
-Hybrid Passed: False
-
-Input Text: [['is']]
-Expected: [['be']]
-Stem Output: [['is']]
-Stem Passed: False
-Lemmatize Output: [['is']]
-Lemmatize Passed: False
-Hybrid Output: [['is']]
-Hybrid Passed: False
-
-Input Text: [['are']]
-Expected: [['be']]
-Stem Output: [['are']]
-Stem Passed: False
-Lemmatize Output: [['are']]
-Lemmatize Passed: False
-Hybrid Output: [['are']]
-Hybrid Passed: False
-
-Input Text: [['was']]
-Expected: [['be']]
-Stem Output: [['wa']]
-Stem Passed: False
-Lemmatize Output: [['wa']]
-Lemmatize Passed: False
-Hybrid Output: [['wa']]
-Hybrid Passed: False
-
-Input Text: [['been']]
-Expected: [['be']]
-Stem Output: [['been']]
-Stem Passed: False
-Lemmatize Output: [['been']]
-Lemmatize Passed: False
-Hybrid Output: [['been']]
-Hybrid Passed: False
-
-Input Text: [['being']]
-Expected: [['be']]
-Stem Output: [['be']]
-Stem Passed: True
-Lemmatize Output: [['being']]
-Lemmatize Passed: False
-Hybrid Output: [['be']]
-Hybrid Passed: True
 
