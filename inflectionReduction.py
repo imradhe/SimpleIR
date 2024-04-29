@@ -82,14 +82,3 @@ class InflectionReduction:
 
 		return metrics
 
-def calculate_metrics(results, approach):
-    true_positives = sum(case['weight'] for case in results if case[f'{approach}_passed'])
-    false_positives = sum(case['weight'] for case in results if not case[f'{approach}_passed'] and case[f'{approach}_output'])
-    false_negatives = sum(case['weight'] * len(case['expected']) for case in results if not case[f'{approach}_passed'])
-	
-
-
-    precision = true_positives / (true_positives + false_positives) if true_positives + false_positives > 0 else 0
-    recall = true_positives / (true_positives + false_negatives) if true_positives + false_negatives > 0 else 0
-    f1_score = 2 * (precision * recall) / (precision + recall) if precision + recall > 0 else 0
-    return {'precision': precision, 'recall': recall, 'f1_score': f1_score, 'true_positives': true_positives, 'false_positives': false_positives, 'false_negatives': false_negatives}
