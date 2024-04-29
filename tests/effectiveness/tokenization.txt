@@ -1,5 +1,5 @@
-Naive: Precision - 0.5340909090909091, Recall - 0.39495798319327735, F1 Score - 0.45410628019323673
-PennTreeBank: Precision - 0.8863636363636362, Recall - 0.8863636363636362, F1 Score - 0.8863636363636362
+Naive: Precision - 0.5340909090909091, Recall - 1.0, F1 Score - 0.6962962962962962
+PennTreeBank: Precision - 0.8863636363636362, Recall - 1.0, F1 Score - 0.9397590361445782
 
 Input Text: ['This is sent1', 'this is sent2']
 Expected: [['This', 'is', 'sent1'], ['this', 'is', 'sent2']]
