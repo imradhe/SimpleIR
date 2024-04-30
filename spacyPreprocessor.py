@@ -61,37 +61,36 @@ class SpacyPreprocessor:
 
         for doc in tqdm(self.documents, desc="Processing documents"):
             processed_doc = self.process(doc['body'])
-            segmented_docs.append((doc['id'], doc['title'], processed_doc['sentences']))
-            tokenized_docs.append((doc['id'], doc['title'], processed_doc['tokens']))
-            stopword_removed_docs.append((doc['id'], doc['title'], processed_doc['stopwordRemovedTokens']))
-            reduced_docs.append((doc['id'], doc['title'], processed_doc['reducedTokens']))
-            detokenized_docs.append((doc['id'], doc['title'], processed_doc['processedText']))
-
+            segmented_docs.append((doc['id'], processed_doc['sentences']))
+            tokenized_docs.append((doc['id'], processed_doc['tokens']))
+            stopword_removed_docs.append((doc['id'], processed_doc['stopwordRemovedTokens']))
+            reduced_docs.append((doc['id'], processed_doc['reducedTokens']))
+            detokenized_docs.append((doc['id'], processed_doc['processedText']))
         with open(self.output_dir + "spacy_segmented_docs.txt", "w") as f:
             for doc in tqdm(segmented_docs, desc="Indexing segmented docs"):
-                f.write(f"Doc ID: {doc[0]}\nTitle: {doc[1]}\n")
-                f.write('\n'.join(doc[2]) + '\n')
+                f.write(f"Doc ID: {doc[0]}\n")
+                f.write('\n'.join(doc[1]) + '\n')
 
         with open(self.output_dir + "spacy_tokenized_docs.txt", "w") as f:
             for doc in tqdm(tokenized_docs, desc="Indexing tokenized docs"):
-                f.write(f"Doc ID: {doc[0]}\nTitle: {doc[1]}\n")
-                f.write('\n'.join([' '.join(sent) for sent in doc[2]]) + '\n')
+                f.write(f"Doc ID: {doc[0]}\n")
+                f.write('\n'.join([' '.join(sent) for sent in doc[1]]) + '\n')
 
         with open(self.output_dir + "spacy_stopword_removed_docs.txt", "w") as f:
             for doc in tqdm(stopword_removed_docs, desc="Indexing stopword removed docs"):
-                f.write(f"Doc ID: {doc[0]}\nTitle: {doc[1]}\n")
-                f.write('\n'.join([' '.join(sent) for sent in doc[2]]) + '\n')
+                f.write(f"Doc ID: {doc[0]}\n")
+                f.write('\n'.join([' '.join(sent) for sent in doc[1]]) + '\n')
 
         with open(self.output_dir + "spacy_reduced_docs.txt", "w") as f:
             for doc in tqdm(reduced_docs, desc="Indexing reduced docs"):
-                f.write(f"Doc ID: {doc[0]}\nTitle: {doc[1]}\n")
-                f.write('\n'.join([' '.join(sent) for sent in doc[2]]) + '\n')
+                f.write(f"Doc ID: {doc[0]}\n")
+                f.write('\n'.join([' '.join(sent) for sent in doc[1]]) + '\n')
 
-        detokenized_docs_json = [{'id': doc[0], 'body': doc[2]} for doc in detokenized_docs]
+        detokenized_docs_json = [{'id': doc[0], 'body': doc[1]} for doc in detokenized_docs]
         with open(self.output_dir + "spacy_detokenized_docs.json", "w") as f:
             f.write(json.dumps(detokenized_docs_json, default=str))
     
-    def retrieve(self, query):
+    def load_detokenized_docs(self):
         if self.documents is None:
             self.load_documents()
 
@@ -103,43 +102,4 @@ class SpacyPreprocessor:
         else:
             with open(detokenized_docs_path) as f:
                 self.documents = json.load(f)
-
-        results = []
-        query_processed = self.process(query)['processedText']
-        with tqdm(total=len(self.documents), desc="Retrieving") as pbar:
-            for doc in self.documents:
-                doc_processed = self.process(doc['body'])['processedText']
-                similarity_score = query_processed.similarity(doc_processed)
-                results.append({'id': doc['id'], 'score': similarity_score})
-                pbar.update(1)
-
-        # Sort the results based on similarity score
-        results.sort(key=lambda x: x['score'], reverse=True)
-        
-        # Add rank to each result
-        for rank, result in enumerate(results, start=1):
-            result['rank'] = rank
-        
-        # Save the rankings in "trails/results.json"
-        with open(self.output_dir + "results.json", "w") as f:
-            json.dump(results, f, default=str)
-        return results
-    def run_queries(self):
-        with open(self.queries_path) as f:
-            queries_data = json.load(f)
-        results_all_queries = {}
-        with tqdm(total=len(queries_data), desc="Running queries") as pbar:
-            for query_data in queries_data:
-                query_number = query_data.get('query number')
-                query_text = query_data.get('query')
-                results_for_query = self.retrieve(query_text)
-                results_all_queries[query_number] = results_for_query
-                pbar.update(1)
-        
-        # Save the results for all queries
-        with open(self.output_dir + "queries_results.json", "w") as f:
-            json.dump(results_all_queries, f, default=str)
-
-# Example usage:
-spacyPreprocessor = SpacyPreprocessor('cranfield/cran_docs.json', 'cranfield/cran_queries.json', 'trails/')
-spacyPreprocessor.run_queries()
+        return self.documents
