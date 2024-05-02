@@ -16,7 +16,9 @@ import spacy
 import json
 from tqdm import tqdm
 from sklearn.feature_extraction.text import TfidfVectorizer
-from torch import cosine_similarity
+from sklearn.decomposition import TruncatedSVD
+from sklearn.metrics.pairwise import cosine_similarity
+import torch
 
 def calculate_metrics(results, approach):
     true_positives = sum(case['weight'] for case in results if case[f'{approach}_passed'])
