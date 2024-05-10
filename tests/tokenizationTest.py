@@ -138,7 +138,7 @@ with open('tests/efficiency/tokenization.txt', 'w', encoding='utf-8') as file:
         file.write(f"Naive Approach Time: {naive_times[i]}\n")
         file.write(f"PennTreeBank Approach Time: {pennTreeBank_times[i]}\n\n")
 # Hypothesis testing
-alpha = 0.5
+alpha = 0.05
 with open('tests/hypothesis/tokenization.txt', 'w', encoding='utf-8') as file:
 
     # Precision scores for the Naive approach and the Penn Tree Bank tokenizer
