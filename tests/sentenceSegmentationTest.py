@@ -257,7 +257,7 @@ with open('tests/efficiency/sentenceSegmentation.txt', 'w', encoding='utf-8') as
         file.write(f"Punkt Approach Time: {punkt_times[i]}\n\n")
 
 
-alpha = 0.5
+alpha = 0.05
 # Save and print hypothesis testing results
 with open('tests/hypothesis/sentenceSegmentation.txt', 'w', encoding='utf-8') as file:
 
