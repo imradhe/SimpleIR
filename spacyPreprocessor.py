@@ -6,6 +6,7 @@ class SpacyPreprocessor:
         self.queries_path = queries_path
         self.output_dir = output_dir
         self.documents = None
+        self.reduced = None
         self.queries = None
         self.nlp = spacy.load("en_core_web_md")
 
@@ -81,10 +82,9 @@ class SpacyPreprocessor:
                 f.write(f"Doc ID: {doc[0]}\n")
                 f.write('\n'.join([' '.join(sent) for sent in doc[1]]) + '\n')
 
-        with open(self.output_dir + "spacy_reduced_docs.txt", "w") as f:
-            for doc in tqdm(reduced_docs, desc="Indexing reduced docs"):
-                f.write(f"Doc ID: {doc[0]}\n")
-                f.write('\n'.join([' '.join(sent) for sent in doc[1]]) + '\n')
+        reduced_docs_json = [{'id': doc[0], 'body': doc[1]} for doc in reduced_docs]
+        with open(self.output_dir + "spacy_reduced_docs.json", "w") as f:
+            f.write(json.dumps(reduced_docs_json, default=str))
 
         detokenized_docs_json = [{'id': doc[0], 'body': doc[1]} for doc in detokenized_docs]
         with open(self.output_dir + "spacy_detokenized_docs.json", "w") as f:
@@ -103,3 +103,17 @@ class SpacyPreprocessor:
             with open(detokenized_docs_path) as f:
                 self.documents = json.load(f)
         return self.documents
+
+    def load_reduced_docs(self):
+        if self.reduced is None:
+            self.load_documents()
+
+        reduced_docs_path = self.output_dir + "spacy_reduced_docs.json"
+        if not os.path.exists(reduced_docs_path):
+            self.index()
+            with open(reduced_docs_path) as f:
+                self.reduced = json.load(f)
+        else:
+            with open(reduced_docs_path) as f:
+                self.reduced = json.load(f)
+        return self.reduced
